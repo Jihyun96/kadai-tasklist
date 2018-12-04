@@ -1,18 +1,24 @@
-<%= form_for(@task) do |f| %>
-  <% if @task.errors.any? %>
-   <div id ="error_explanation">
-     <ul>
-       <% @task.errors.full_messages.each do |task| %>
-         <li><%= task %></li>
-       <% end %>
-     </ul>
-   </div>
-  <% end %>
-  
-  <%= f.label :content, 'タスク' %>
-  <%= f.text_field :content %>
-    <%= f.label :status, 'ステータス' %>
-  <%= f.select :status, [['',''],['未完','未完'], ['処理中','処理中'], ['完了','完了']]%>
-  
-  <%= f.submit '投稿' %>
-<% end %>
+<div class="row">
+  <div class="col-lg-offset col-lg-6 col-sm-offset col-sm-8 col-xs-12">
+      <%= form_for(@task) do |f| %>
+        <% if @task.errors.any? %>
+          <div class="alert alert-warning">
+            <ul>
+              <% @task.errors.full_messages.each do |task| %>
+                 <li><%= task %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="from-group">
+          <%= f.label :content, 'タスク' %>
+          <%= f.text_field :content ,class: 'form-control'%>
+        </div>
+        <div class="from-group">
+          <%= f.label :status, 'ステータス' %>
+          <%= f.select :status, [['',''],['未完','未完'], ['処理中','処理中'], ['完了','完了']], class: "form-control"%>
+        </div>
+      <%= f.submit '投稿', class:"btn btn-ouline-primary"%>
+    <% end %>
+  </div>
+</div>
