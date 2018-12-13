@@ -15,5 +15,7 @@
     </tr>
 </table>
 
+
+<a class="btn btn-outline-success" href="/users/<%= current_user.id %>">My profile</a>
 <%= link_to 'このタスクを編集する',edit_task_path(@task), class:"btn btn-outline-secondary" %>
 <%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？'}, class:"btn btn-outline-danger" %>
